@@ -16,6 +16,7 @@ public interface BankAccount {
      * @return the current balance
      */
     double getBalance();
+  
 
     /**
      * Allows the deposit of an amount on the account, if the given userID corresponds to the register holder ID
@@ -24,6 +25,9 @@ public interface BankAccount {
      * @param userID the id of the user that wants do the deposit
      * @param amount the amount of the deposit
      */
+
+    void setBalance(double amount);
+ 
     void deposit(int userID, double amount);
 
     /**
