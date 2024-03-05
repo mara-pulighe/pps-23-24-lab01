@@ -26,7 +26,7 @@ public interface BankAccount {
      * @param amount the amount of the deposit
      */
 
-    void setBalance(double amount);
+
  
     void deposit(int userID, double amount);
 

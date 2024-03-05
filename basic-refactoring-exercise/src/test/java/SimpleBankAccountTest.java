@@ -28,6 +28,10 @@ class SimpleBankAccountTest {
     void testDeposit() {
         bankAccount.deposit(accountHolder.getId(), 100);
         assertEquals(100, bankAccount.getBalance());
+        bankAccount.deposit(accountHolder.getId(), 100);
+        assertEquals(200, bankAccount.getBalance());
+        bankAccount.deposit(accountHolder.getId(), 100);
+        assertEquals(300, bankAccount.getBalance());
     }
 
     @Test

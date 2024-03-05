@@ -7,7 +7,7 @@ package example.model;
  */
 public class SimpleBankAccount implements BankAccount {
 
-    private double balance;
+    public double balance;
     private final AccountHolder holder;
     public boolean setBalance;
 
@@ -23,11 +23,6 @@ public class SimpleBankAccount implements BankAccount {
     @Override
     public double getBalance() {
         return this.balance;
-    }
-
-    @Override
-    public void setBalance(double amount) {
-        this.balance += (amount);
     }
 
     @Override

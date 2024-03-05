@@ -1,5 +1,6 @@
 package example.model;
 
+
 /**
  * This class represent a particular instance of a BankAccount.
  * In particular, a Simple Bank Account allows always the deposit
@@ -7,28 +8,26 @@ package example.model;
  */
 public class SimpleBankAccountWithAtm extends SimpleBankAccount {
 
+    private static int FEE = 1;
+
 
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         super(holder, balance);
     }
     
-    private boolean isWithdrawAllowed(final double amount){
-        return super.setBalance;
+
+
+    @Override
+    public void withdraw(int userID, double amount) {
+        double newamunt = amount + FEE;
+        super.withdraw(userID, newamunt);
     }
 
     @Override
-    public void deposit(final int userID, final double amount) {
-        if (checkUser(userID)) {
-            super.setBalance(amount-1);
-        }
-    }
-
-    @Override
-    public void withdraw(final int userID, final double amount) {
-        if (super.checkUser(userID) && isWithdrawAllowed(amount)) {
-            super.setBalance( amount+1);
-        }
+    public void deposit(int userID, double amount) {
+        double newamount = amount - FEE;
+        super.deposit(userID, newamount);
     }
 }
 
