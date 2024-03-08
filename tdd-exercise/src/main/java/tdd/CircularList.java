@@ -44,4 +44,6 @@ public interface CircularList {
      * Note the first one is the first added to the list.
      */
     void reset();
+    
+    int getIndex();
 }
