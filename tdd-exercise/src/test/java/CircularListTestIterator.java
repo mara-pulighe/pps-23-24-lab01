@@ -1,23 +1,21 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Optional;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tdd.Exercise2Step1.CircularList;
-import tdd.Exercise2Step1.CircularListImplementation;
+import tdd.Exercise2Step2.CircularList;
+import tdd.Exercise2Step2.CircularListImplementation;
 
 /**
  * The test suite for testing the CircularList implementation
  */
-public class CircularListTest {
+public class CircularListTestIterator {
 
     private CircularList circularlist;
 
     @BeforeEach
     void beforeEach(){
-    circularlist= new CircularListImplementation(0,null);
+    circularlist= new CircularListImplementation();
     }
 
 
@@ -39,25 +37,25 @@ public class CircularListTest {
     }
 
     @Test 
-    void nextElement(){
+    void TestforwardIterator(){
         circularlist.add(10);
         circularlist.add(20);
         circularlist.add(30);
-        assertEquals(Optional.of(10), circularlist.next());
-        assertEquals(Optional.of(20), circularlist.next());
-        assertEquals(Optional.of(30), circularlist.next());
-        assertEquals(Optional.of(10), circularlist.next());
+        var forwardIterator = circularlist.forwardIterator();
+        forwardIterator.next();
+        forwardIterator.next();
+        assertEquals(30, forwardIterator.next());
     }
 
     @Test 
-    void previousElement(){
+    void TestbackwardIterator(){
         circularlist.add(10);
         circularlist.add(20);
         circularlist.add(30);
-        assertEquals(Optional.of(30), circularlist.previous());
-        assertEquals(Optional.of(20), circularlist.previous());
-        assertEquals(Optional.of(10), circularlist.previous());
-        assertEquals(Optional.of(30), circularlist.previous());
+        var backwardIterator = circularlist.forwardIterator();
+        backwardIterator.next();
+        backwardIterator.next();
+        assertEquals(30, backwardIterator.next());
     }
 
     @Test
@@ -65,7 +63,6 @@ public class CircularListTest {
         circularlist.add(10);
         circularlist.add(20);
         circularlist.add(30);
-        circularlist.next();
         circularlist.reset(); 
         assertEquals(0, circularlist.getIndex()); 
     }

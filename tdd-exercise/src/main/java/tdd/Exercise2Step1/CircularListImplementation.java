@@ -1,11 +1,11 @@
-package tdd;
+package tdd.Exercise2Step1;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 public class CircularListImplementation implements CircularList {
 
-    private int index;
+    public int index;
     private ArrayList<Integer> list;
 
     public CircularListImplementation(int index, ArrayList<Integer> list) {
